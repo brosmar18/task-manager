@@ -11,22 +11,20 @@ def main():
     root.title("Task Manager")
 
     # Set the size of the main window (width x height)
-    root.geometry("400x00")
+    root.geometry("400x400")
 
     # Call other functions to create the app's components here
 
-    # Start the main event loop for the app.
-    root.mainloop()
-
-    # Create the task frame and store it in the 'task-frame' variable.
+    # Create the task frame and store it in the
+    # task_frame variable.
     task_frame = create_task_frame(root)
 
     # Create the nput field and add task button.
     create_input_and_add_button(root, task_frame)
 
-# Execute the main function when the script is run.
-if __name__ == "__main__":
-    main()
+    # Start the main event loop for the app.
+    root.mainloop()
+
 
 def create_task_frame(root):
     # Create a frame widget with padding to old tasks.
@@ -50,3 +48,22 @@ def create_input_and_add_button(root, task_frame):
     add_task_button.grid(row=0, column=1, padx=5, pady=5)
 
     # Call this funciton in the main().
+
+# add_task function to add tasks to the list
+def add_task(root, task_entry):
+    # Get the text entered by the user.
+    task_text = task_entry.get()
+    # Check if the user entered smoe text.
+    if task_text:
+        # Create a CheckButton widget with the entered text.
+        task = ttk.Checkbutton(root, text=task_text, variable=tk.BooleanVar())
+        # Place the task widget in the main window using the grid geometry manager.
+        task.grid(sticky=(tk.W, tk.E))
+
+    # Clear the task entry input field.
+    task_entry.delete(0, tk.END)
+
+
+# Execute the main function when the script is run.
+if __name__ == "__main__":
+    main()
