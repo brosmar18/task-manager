@@ -1,42 +1,22 @@
 Loaded:
 Buy groceries
 
-Loaded:
 Finish project report
 
-Loaded:
 Call the dentist for an appointment
 
-Loaded:
 Take out the trash
 
-Loaded:
 Dishes
 
-Loaded:
 Finish Final project
 
-Loaded:
 Finish python course
 
-Deleted:
-Buy groceries
 
-Deleted:
-Call the dentist for an appointment
 
 Added:
-walk the pups
+walk pups
 
-Completed:
-Dishes
-
-Completed:
-Finish Final project
-
-Completed:
-Finish python course
-
-Completed:
-walk the pups
+workout
 
