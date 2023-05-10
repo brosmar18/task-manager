@@ -43,7 +43,16 @@ def load_tasks(root, file_name):
     except Exception as e:
         print(f"Error while loading tasks from file: {e}")
 
-
+def save_tasks(file_name, task_status):
+    with open(file_name, 'a') as file:
+        file.write(f"{task_status}:\n")
+        for task_container in root.winfo_children():
+            if isinstance(task_container, ttk.Frame):
+                task = task_container.winfo_children()[0]
+                if isinstance(task, ttk.Checkbutton):
+                    task_text = task.cget("text")
+                    file.write(f"{task_text}\n")
+        file.write("\n")
 
 def create_task_frame(root):
     task_frame = ttk.Frame(root, padding="10")
