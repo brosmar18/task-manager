@@ -19,3 +19,24 @@ Finish Final project
 Loaded:
 Finish python course
 
+Deleted:
+Buy groceries
+
+Deleted:
+Call the dentist for an appointment
+
+Added:
+walk the pups
+
+Completed:
+Dishes
+
+Completed:
+Finish Final project
+
+Completed:
+Finish python course
+
+Completed:
+walk the pups
+
