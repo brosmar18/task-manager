@@ -96,9 +96,15 @@ def add_task(root, task_entry):
         if isinstance(task_entry, ttk.Entry):
             task_entry.delete(0, tk.END)
 
+        # Save tasks to a separate file with the "Added" status
+        save_tasks("task_status.txt", "Added")
+
 
 def delete_task(task_container):
     task_container.destroy()
+
+    # Save tasks to a separate file with the "Deleted" status.
+    save_tasks("task_status.txt", "Deleted")
 
 
 if __name__ == "__main__":
