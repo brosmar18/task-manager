@@ -7,6 +7,16 @@ def main():
     root.title("Task Manager")
     root.geometry("400x400")
 
+    style = ttk.Style()
+    style.theme_use('classic')
+
+    # Create custom checkbutton style
+    style.configure('CustomCheckbutton.TCheckbutton',
+                    background='white', foreground='black')
+    style.map('CustomCheckbutton.TCheckbutton',
+              indicatorcolor=[('selected', 'black')],
+              background=[('!disabled', 'white')])
+
     task_frame = create_task_frame(root)
     create_input_and_add_button(root, task_frame)
     root.mainloop()
@@ -32,30 +42,20 @@ def add_task(root, task_entry):
     if task_text:
         task_container = ttk.Frame(root)
 
-        # create a BooleanVar to store the state of the checkbox
-        task_var = tk.BooleanVar()
+        task_var = tk.BooleanVar(value=False)
 
-        # create the Checkbutton widget with the variable
         task = ttk.Checkbutton(
-            task_container, text=task_text, variable=task_var)
+            task_container, text=task_text, variable=task_var, style='CustomCheckbutton.TCheckbutton')
 
-        # add the Checkbutton to the task_container
         task.grid(row=0, column=0, sticky=tk.W)
 
-        # create the Delete button with the command
         delete_button = ttk.Button(
             task_container, text="Delete", command=lambda: delete_task(task_container))
 
-        # add the Delete button to the task_container
         delete_button.grid(row=0, column=1, padx=5, sticky=tk.W)
 
-        # add the task_container to the root
         task_container.grid(sticky=(tk.W, tk.E))
 
-        # clear the
-
-
-        # clear the task entry
         task_entry.delete(0, tk.END)
 
 
