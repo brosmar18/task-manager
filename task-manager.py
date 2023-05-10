@@ -60,6 +60,10 @@ def add_task(root, task_entry):
         # Place the task widget in the main window using the grid geometry manager.
         task.grid(sticky=(tk.W, tk.E))
 
+        ## delete button
+        delete_button = ttk.Button(task_container, text="Delete", command=lambda: delete_task(task_container))
+        delete_button.grid(row=0, column=1, padx=5)
+
     # Clear the task entry input field.
     task_entry.delete(0, tk.END)
 
