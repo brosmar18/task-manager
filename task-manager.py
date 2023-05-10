@@ -19,7 +19,30 @@ def main():
 
     task_frame = create_task_frame(root)
     create_input_and_add_button(root, task_frame)
+
+    # Load tasks from the file.
+    load_tasks(root, "tasks.txt")
+
+
     root.mainloop()
+
+def load_tasks(root, file_name):
+    try:
+        with open(file_name, 'r') as file:
+            for task_text in file:
+                # Remove the newline character.
+                task_text = task_text.strip()
+
+                if task_text:
+                    # Create a new task in the task manager with the task manager with the task text.
+                    add_task(root, task_text)
+    except FileNotFoundError:
+        # if the file doesn't exist, create an empty one.
+        open(file_name, 'w').close()
+
+    except Exception as e:
+        print(f"Error while loading tasks from file: {e}")
+
 
 
 def create_task_frame(root):
@@ -38,7 +61,12 @@ def create_input_and_add_button(root, task_frame):
 
 
 def add_task(root, task_entry):
-    task_text = task_entry.get()
+    # If task_entry is an Entry widget, get the entered text.
+    if isinstance(task_entry, ttk.Entry):
+        task_text = task_entry.get()
+    else:
+        task_text = task_entry
+
     if task_text:
         task_container = ttk.Frame(root)
 
@@ -56,7 +84,8 @@ def add_task(root, task_entry):
 
         task_container.grid(sticky=(tk.W, tk.E))
 
-        task_entry.delete(0, tk.END)
+        if isinstance(task_entry, ttk.Entry):
+            task_entry.delete(0, tk.END)
 
 
 def delete_task(task_container):
