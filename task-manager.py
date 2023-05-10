@@ -23,3 +23,10 @@ if __name__ == "__main__":
     main()
 
 
+def create_task_frame(root):
+    # Create a Frame widget with padding to hold tasks
+    task_frame = ttk.Frame(root, padding="10")
+    # Place the task frame in the main window using the grid geometry manager
+    task_frame.grid(row=0, column=0, sticky=(tk.W, tk.E, tk.N, tk.S))
+    # Return the created frame
+    return task_frame
