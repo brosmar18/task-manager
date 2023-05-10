@@ -67,6 +67,9 @@ def add_task(root, task_entry):
     # Clear the task entry input field.
     task_entry.delete(0, tk.END)
 
+def delete_task(task_container):
+    task_container.destroy()
+
 
 # Execute the main function when the script is run.
 if __name__ == "__main__":
